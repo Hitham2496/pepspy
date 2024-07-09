@@ -1,0 +1,11 @@
+setup.cfg
+setup.py
+src/pepspy/__init__.py
+src/pepspy/peps.py
+src/pepspy.egg-info/PKG-INFO
+src/pepspy.egg-info/SOURCES.txt
+src/pepspy.egg-info/dependency_links.txt
+src/pepspy.egg-info/not-zip-safe
+src/pepspy.egg-info/requires.txt
+src/pepspy.egg-info/top_level.txt
+tests/test_peps.py
