@@ -1,4 +1,5 @@
 pycache/
+*egg-info
 *.pyc
 *.pyo
 *.pyd
