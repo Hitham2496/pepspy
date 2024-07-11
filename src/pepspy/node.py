@@ -105,12 +105,30 @@ class Node:
         return Node(new_name, contracted_tensor)
 
     def contract_self(self, ax, new_name = None):
+        """
+        Contracts this node with itself along an axis.
+
+        Parameters:
+        -----------
+        ax : np.ndarray
+            Axes of the tensor contraction
+        new_name : string, optional
+            New name for created node, uses self.name by default
+        
+        Returns:
+        --------
+        Node
+            A new node from the contraction operation
+        """
 
         if len(ax) != 2:
             raise ValueError("Axis must be of dimension 2")
 
         shape = self.shape
         idx_0, idx_1 = ax
+        if (not isinstance(idx_0, int) or not isinstance(idx_1, int)):
+            raise ValueError("Indices must be integers")
+
         if shape[idx_0] != shape[idx_1]:
             raise ValueError("Indices to contract must have the same dimension")
 
@@ -127,3 +145,5 @@ class Node:
         contracted_tensor = np.tensordot(self.tensor, identity_matrix, axes=(ax, [0, 1]))
 
         return Node(new_name, contracted_tensor)
+
+
